@@ -3,25 +3,159 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Titre</title>
+  <title>AIsystock</title>
   <style>
+    /* Global Styles */
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
+      font-family: 'Arial', sans-serif;
       margin: 0;
+      padding: 0;
+      background-color: #f8f8f8; /* Fond clair */
+      color: #333; /* Texte sombre pour la lisibilité */
+    }
+
+    /* Header Styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      text-align: left;
+    }
+
+    /* Menu Styles */
+    .menu {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    .menu > li {
+      margin-right: 20px;
+      position: relative;
+    }
+
+    .menu > li > a {
+      text-decoration: none;
+      color: #333; /* Texte sombre */
+      font-size: 1rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .menu > li > a:hover {
+      color: #1e90ff; /* Bleu clair au survol */
+    }
+
+    /* Dropdown (Menu déroulant) */
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      min-width: 180px;
+      z-index: 10;
+    }
+
+    .menu > li:hover .submenu {
+      display: block;
+    }
+
+    .submenu li {
+      padding: 10px 20px;
+    }
+
+    .submenu li a {
+      color: #333;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+
+    .submenu li a:hover {
+      color: #32cd32; /* Vert doux au survol */
+    }
+
+    /* Page Content */
+    .content {
       padding: 40px;
       text-align: center;
     }
 
-    h1 {
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
       color: #333;
-      font-size: 3rem;
+    }
+
+    .section {
+      margin-bottom: 40px;
+      padding: 30px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
+      border-radius: 8px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: #fff;
     }
   </style>
 </head>
 <body>
 
-  <h1>Titre</h1>
+  <header>
+    <h1><span class="ai">AI</span><span class="systock">systock</span></h1>
+
+    <!-- Menu -->
+    <ul class="menu">
+      <li>
+        <a href="#">Thèmes</a>
+        <ul class="submenu">
+          <li><a href="#">Réhabilitation</a></li>
+          <li><a href="#">Recyclage</a></li>
+          <li><a href="#">Géolocalisation des chantiers</a></li>
+          <li><a href="#">Site de recyclage</a></li>
+        </ul>
+      </li>
+    </ul>
+  </header>
+
+  <!-- Page Content -->
+  <div class="content">
+    <div class="section">
+      <h2>Réhabilitation</h2>
+      <p>Le processus de réhabilitation vise à restaurer et à redonner une nouvelle vie à des structures existantes.</p>
+    </div>
+    <div class="section">
+      <h2>Recyclage</h2>
+      <p>Le recyclage est essentiel pour réduire les déchets et réutiliser les matériaux dans un cadre durable.</p>
+    </div>
+    <div class="section">
+      <h2>Géolocalisation des chantiers</h2>
+      <p>Les chantiers peuvent être géolocalisés pour une gestion plus efficace des ressources et du temps.</p>
+    </div>
+    <div class="section">
+      <h2>Site de recyclage</h2>
+      <p>Un site dédié pour le recyclage des matériaux provenant des chantiers et de la construction.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 AIsystock - Tous droits réservés</p>
+  </footer>
 
 </body>
 </html>
