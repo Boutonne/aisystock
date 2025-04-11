@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AIsystock</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+
+    .page-garde {
+      height: 70vh;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .garde-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .menu {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    .menu > li {
+      margin-right: 20px;
+      position: relative;
+    }
+
+    .menu > li > a {
+      text-decoration: none;
+      color: #333;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 10px 15px;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .menu > li > a:hover {
+      color: #1e90ff;
+    }
+
+    .menu > li > a:first-child {
+      font-size: 2rem;
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 0;
+      z-index: 100;
+      width: max-content;
+      min-width: 220px;
+    }
+
+    .menu > li:hover .submenu {
+      display: block;
+    }
+
+    .submenu li {
+      padding: 10px 20px;
+      position: relative;
+      list-style: none;
+      width: 100%;
+      box-sizing: border-box;
+      white-space: nowrap;
+    }
+
+    .submenu li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      color: #32cd32;
+      font-size: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .submenu li a {
+      color: #333;
+      font-size: 1rem;
+      text-decoration: none;
+      padding-left: 18px;
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .submenu li a:hover {
+      color: #1e90ff;
+    }
+
+    .logo {
+      width: 200px;
+      height: auto;
+    }
+
+    .content {
+      display: none;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .section {
+      margin-bottom: 40px;
+      padding: 30px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: #fff;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .contact-container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .contact-list {
+      margin-bottom: 10px;
+    }
+
+    .contact-list li {
+      text-align: left;
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 10px;
+      padding-left: 20px;
+    }
+
+    .section p {
+      text-align: justify;
+      text-justify: inter-word;
+      line-height: 1.6;
+    }
+
+    .contact-image {
+      display: block;
+      margin: 30px auto 0 auto;
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.content');
+      sections.forEach(section => section.style.display = 'none');
+
+      // Affiche la section demandée
+      document.getElementById(id).style.display = 'block';
+
+      // Affiche ou cache l’image de garde
+      const accueil = document.getElementById('accueil');
+      if (id !== 'nosservices') {
+        accueil.style.display = 'none';
+      } else {
+        accueil.style.display = 'block';
+      }
+    }
+
+    // Affiche par défaut la page d’accueil
+    window.onload = () => {
+      showSection('nosservices');
+    };
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <!-- Menu à gauche -->
+    <nav>
+      <ul class="menu">
+        <li>
+          <a href="#">Thèmes</a>
+          <ul class="submenu">
+            <li><a href="exemple.html" target="_blank">Exemple de recherche</a></li>
+            <li><a href="#" onclick="showSection('nosservices')">Nos services</a></li>
+            <li><a href="#" onclick="showSection('donnees')">Données des chantiers</a></li>
+            <li><a href="#" onclick="showSection('nouscontacter')">Nous contacter</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Logo à droite -->
+    <img src="logo.png" alt="Logo du site AIsystock" class="logo">
+  </header>
+
+  <!-- Image de garde (uniquement à l’accueil) -->
+  <div id="accueil">
+    <section class="page-garde">
+      <img src="chantier.png" alt="Image de chantier" class="garde-image">
+    </section>
+  </div>
+
+  <!-- Sections de contenu -->
+  <div id="nosservices" class="content">
+    <div class="section" style="max-width: 800px; margin: 0 auto;">
+      <h2>Nos services</h2>
+      <p>
+        AIsystock est une jeune start-up engagée dans la réduction de l’empreinte carbone dans le secteur de la construction grâce à l’intelligence artificielle.
+        Notre démarche s’inscrit pleinement dans la lutte contre le réchauffement climatique, en centralisant la gestion des ressources disponibles issues du réemploi.
+        Toutes les ressources récupérables à proximité de votre chantier sont directement consultables sur notre plateforme.
+        De plus, la disponibilité de chaque matériau est indiquée en temps réel, vous permettant de l’intégrer efficacement à votre planning.
+        Avec AIsystock, les stocks sont identifiés, centralisés et gérés directement sur les sites de réemploi.
+      </p>
+    </div>
+  </div>
+
+  <div id="donnees" class="content">
+    <div class="section">
+      <h2>Données des chantiers</h2>
+      <p>
+        Cette section recense les matériaux disponibles à l’issue d’un projet de réhabilitation.
+        Vous avez la possibilité de sélectionner le matériau requis pour votre propre projet en suivant
+        <a href="https://arcg.is/CCS580" target="_blank" style="color: #1e90ff; font-weight: bold;">ce lien</a>.
+      </p>
+    </div>
+  </div>
+
+  <div id="nouscontacter" class="content">
+    <div class="section">
+      <div class="contact-container">
+        <h2>Nous contacter</h2>
+        <ul class="contact-list">
+          <li>Adresse: 28 avenue du président Wilson</li>
+          <li>Téléphone: 07.83.32.25.50</li>
+          <li>Email: <a href="mailto:enrique.boutonne@estp.fr">enrique.boutonne@estp.fr</a></li>
+          <li>LinkedIn: Enrique Boutonne</li>
+        </ul>
+        <img src="cv.png" alt="Illustration contact" class="contact-image">
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 AIsystock. Tous droits réservés.
+  </footer>
+
+</body>
+</html>
