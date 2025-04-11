@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AIsystock</title>
   <style>
     body {
@@ -11,6 +11,20 @@
       padding: 0;
       background-color: #f8f8f8;
       color: #333;
+    }
+
+    .page-garde {
+      height: 70vh;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .garde-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     header {
@@ -108,7 +122,7 @@
     }
 
     .logo {
-      width: 200px; /* Agrandie ici */
+      width: 200px;
       height: auto;
     }
 
@@ -141,43 +155,62 @@
       bottom: 0;
       width: 100%;
     }
+
     .contact-container {
       max-width: 400px;
-      margin: 0 auto; /* Centre le bloc horizontalement */
+      margin: 0 auto;
     }
+
     .contact-list {
       margin-bottom: 10px;
     }
 
     .contact-list li {
-      text-align: left; /* Aligne le texte à gauche */
-      width: 100%; /* Assure que chaque élément prend toute la largeur disponible */
-      max-width: 400px; /* Limite la largeur des éléments pour éviter un texte trop large */
-      margin-bottom: 10px; /* Espace entre les éléments */
-      padding-left: 20px; /* Décale légèrement les puces vers la droite */
+      text-align: left;
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 10px;
+      padding-left: 20px;
     }
+
     .section p {
-  text-align: justify;
-  text-justify: inter-word;
-  line-height: 1.6;
-}
+      text-align: justify;
+      text-justify: inter-word;
+      line-height: 1.6;
+    }
+
     .contact-image {
       display: block;
-      margin: 30px auto 0 auto; /* marge en haut + centrage horizontal */
+      margin: 30px auto 0 auto;
       max-width: 100%;
       height: auto;
     }
-
-
   </style>
+
   <script>
     function showSection(id) {
       const sections = document.querySelectorAll('.content');
       sections.forEach(section => section.style.display = 'none');
+
+      // Affiche la section demandée
       document.getElementById(id).style.display = 'block';
+
+      // Affiche ou cache l’image de garde
+      const accueil = document.getElementById('accueil');
+      if (id !== 'nosservices') {
+        accueil.style.display = 'none';
+      } else {
+        accueil.style.display = 'block';
+      }
     }
+
+    // Affiche par défaut la page d’accueil
+    window.onload = () => {
+      showSection('nosservices');
+    };
   </script>
 </head>
+
 <body>
 
   <header>
@@ -187,9 +220,9 @@
         <li>
           <a href="#">Thèmes</a>
           <ul class="submenu">
+            <li><a href="exemple.html" target="_blank">Exemple de recherche</a></li>
             <li><a href="#" onclick="showSection('nosservices')">Nos services</a></li>
             <li><a href="#" onclick="showSection('donnees')">Données des chantiers</a></li>
-            <li><a href="#" onclick="showSection('geolocalisation')">Géolocalisation des chantiers</a></li>
             <li><a href="#" onclick="showSection('nouscontacter')">Nous contacter</a></li>
           </ul>
         </li>
@@ -200,26 +233,35 @@
     <img src="logo.png" alt="Logo du site AIsystock" class="logo">
   </header>
 
+  <!-- Image de garde (uniquement à l’accueil) -->
+  <div id="accueil">
+    <section class="page-garde">
+      <img src="chantier.png" alt="Image de chantier" class="garde-image">
+    </section>
+  </div>
+
   <!-- Sections de contenu -->
   <div id="nosservices" class="content">
     <div class="section" style="max-width: 800px; margin: 0 auto;">
       <h2>Nos services</h2>
-      <p style="text-align: justify; text-justify: inter-word; line-height: 1.6;">
-      <p>AIsystock est une jeune start-up engagée dans la réduction de l’empreinte carbone dans le secteur de la construction grâce à l’intelligence artificielle. Notre démarche s’inscrit pleinement dans la lutte contre le réchauffement climatique, en centralisant la gestion des ressources disponibles suite à des projets de réhabilitation. Toutes les ressources récupérables à proximité de votre chantier sont directement consultables sur notre plateforme. De plus, la disponibilité de chaque matériau est indiquée en temps réel, vous permettant de l’intégrer efficacement à votre planning. Avec AIsystock, les stocks sont identifiés, centralisés et gérés directement sur les sites de réemploi.</p>
+      <p>
+        AIsystock est une jeune start-up engagée dans la réduction de l’empreinte carbone dans le secteur de la construction grâce à l’intelligence artificielle.
+        Notre démarche s’inscrit pleinement dans la lutte contre le réchauffement climatique, en centralisant la gestion des ressources disponibles issues du réemploi.
+        Toutes les ressources récupérables à proximité de votre chantier sont directement consultables sur notre plateforme.
+        De plus, la disponibilité de chaque matériau est indiquée en temps réel, vous permettant de l’intégrer efficacement à votre planning.
+        Avec AIsystock, les stocks sont identifiés, centralisés et gérés directement sur les sites de réemploi.
+      </p>
     </div>
   </div>
 
   <div id="donnees" class="content">
     <div class="section">
       <h2>Données des chantiers</h2>
-      <p>Cette section recense les matériaux disponibles à l’issue d’un projet de réhabilitation. Vous avez la possibilité de sélectionner le matériau requis pour votre propre projet en suivant ce lien.</p>
-    </div>
-  </div>
-
-  <div id="geolocalisation" class="content">
-    <div class="section">
-      <h2>Géolocalisation des chantiers</h2>
-      <p>Dans une démarche de réduction de l’empreinte carbone de votre projet, privilégiez les matériaux situés à proximité de votre site. Vous pouvez consulter les sites proches de votre localisation en suivant ce lien.</p>
+      <p>
+        Cette section recense les matériaux disponibles à l’issue d’un projet de réhabilitation.
+        Vous avez la possibilité de sélectionner le matériau requis pour votre propre projet en suivant
+        <a href="https://arcg.is/CCS580" target="_blank" style="color: #1e90ff; font-weight: bold;">ce lien</a>.
+      </p>
     </div>
   </div>
 
@@ -229,17 +271,15 @@
         <h2>Nous contacter</h2>
         <ul class="contact-list">
           <li>Adresse: 28 avenue du président Wilson</li>
-          <li>tel: 07.83.32.25.50</li>
-          <li>mel: enrique.boutonne@estp.fr</li>
-          <li>linkedin:Enrique Boutonne</li>
-          
-
+          <li>Téléphone: 07.83.32.25.50</li>
+          <li>Email: <a href="mailto:enrique.boutonne@estp.fr">enrique.boutonne@estp.fr</a></li>
+          <li>LinkedIn: Enrique Boutonne</li>
         </ul>
         <img src="cv.png" alt="Illustration contact" class="contact-image">
       </div>
     </div>
   </div>
-    
+
   <footer>
     &copy; 2025 AIsystock. Tous droits réservés.
   </footer>
